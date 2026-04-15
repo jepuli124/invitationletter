@@ -43,7 +43,7 @@ const DancingText: React.FC<incomingParams> = ({givenText = ""}) => {
     //Some div to set where the animation can happen.
     return (
     <div ref={AnimRefPoint}>
-        <p>{givenText}</p>
+        <p >{givenText}</p>
     </div>
     )
 }

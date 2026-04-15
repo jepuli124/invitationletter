@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from 'react'
 import {animate, createScope, splitText, stagger, type Scope} from 'animejs'
 
 interface incomingParams{
-    givenText: string
+    givenText: string,
+    done?: () => void 
 }
 
-const AppearingText: React.FC<incomingParams> = ({givenText = ""}) => {
+const AppearingAndDisappearingText: React.FC<incomingParams> = ({givenText = "", done = () => {},}) => {
     
     const AnimRefPoint = useRef<HTMLDivElement>(null);
     const scope = useRef<Scope>(null);
@@ -18,22 +19,25 @@ const AppearingText: React.FC<incomingParams> = ({givenText = ""}) => {
 
         animate(chars, {
         // Property keyframes
-        y: [
-            { to: '-2.75rem', ease: 'outExpo', duration: 600 },
-            { to: 0, ease: 'outBounce', duration: 800, delay: 100 }
+        scale: [
+            { from: 0, to: 1, ease: 'out(1.6)', duration: 1200, delay: 400  },
+            { to: 1, ease: 'out(1.6)', duration: 800, delay: 100 * chars.length  },
+            { to: 0, ease: 'out(1.6)', duration: 800, delay: 1000 }
         ],
         opacity: [
             { from: 0, to: 1, ease: 'inOutCirc', duration: 1600 },
-            { to: 0.95, ease: 'outBounce', duration: 800, delay: 100 }
+            { to: 0.95, ease: 'outBounce', duration: 800, delay: 100 * chars.length },
+            { to: 0.0, ease: 'outBounce', duration: 800, delay: 1000 },
         ],
         // Property specific parameters
         rotate: {
             from: '-1turn',
-            delay: 0
+            delay: 300
         },
         delay: stagger(50),
         ease: 'inOutCirc',
-        loop: false
+        loop: false,
+        onComplete: () => done()
         });
     });
     
@@ -46,9 +50,9 @@ const AppearingText: React.FC<incomingParams> = ({givenText = ""}) => {
     //Some div to set where the animation can happen.
     return (
     <div ref={AnimRefPoint}>
-        <p>{givenText}</p>
+        <p >{givenText}</p>
     </div>
     )
 }
 
-export default AppearingText
+export default AppearingAndDisappearingText
