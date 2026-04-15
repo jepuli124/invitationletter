@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import AppearingText from './components/AppearingText'
 import AppearingAndDisappearingText from './components/ApperingAndDisappearingText'
+import MainMenu from './components/MainMenu'
 //import DancingText from './components/DancingText'
 
 function App() {
@@ -66,6 +67,16 @@ function App() {
         
       ))}
       </div>
+
+      {
+        state == startTexts.length + 1 ? 
+        <>
+        <MainMenu></MainMenu>
+        
+        </>
+        :
+        <></>
+      }
 
       </section>
 
