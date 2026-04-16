@@ -1,11 +1,22 @@
 import { animate, createScope, stagger, type Scope } from 'animejs';
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import Sparkles from './Sparkles';
+import useSound from 'use-sound';
 
 interface incomingParams{}
 
 const MainMenu: React.FC<incomingParams> = () => {
     const AnimRefPoint = useRef<HTMLDivElement>(null);
     const scope = useRef<Scope>(null);
+    const [particleSpawn, setParticleSpawn] = useState<boolean>(false)
+    const [playNoor] = useSound('./noor.mp3');
+    const [playPhone] = useSound('./phone.mp3');
+    const [playWide] = useSound('./wide.mp3');
+    const [playWow] = useSound('./wow.mp3');
+    const [playSnowy] = useSound('./snowy.mp3', {
+        onend: () => menuMusic.current = false
+    })
+    const menuMusic = useRef<boolean>(false)
     
     useEffect(() => {
     
@@ -73,7 +84,9 @@ const MainMenu: React.FC<incomingParams> = () => {
     });
     
     return () => {
-        if(scope.current){ scope.current.revert() }
+        if(scope.current){ 
+            scope.current.revert() 
+        }
     }
     }, []);
     
@@ -81,7 +94,13 @@ const MainMenu: React.FC<incomingParams> = () => {
     //Some div to set where the animation can happen.
 
     return (
-    <div ref={AnimRefPoint} style={{ width: '100%', maxWidth: '980px', margin: '0 auto' }}>
+    <div ref={AnimRefPoint} style={{ width: '100%', maxWidth: '980px', margin: '0 auto' }} onClick={() => {
+            if(!menuMusic.current){
+                menuMusic.current = true
+                playSnowy()
+            }
+        }
+        }>
         <h2 style={{
             marginBottom: '18px',
             letterSpacing: '0.02em',
@@ -96,25 +115,34 @@ const MainMenu: React.FC<incomingParams> = () => {
             gap: '16px',
             alignItems: 'stretch'
         }}>
-            <section data-menu-card="arrival" style={cardStyle}>
-                <h3 style={titleStyle}>Arrival</h3>
-                <p style={textStyle}>Doors open at exactly 16:00. Miss it and you will be late. Ring a short pulse once, dramatic entrance expected.</p>
+            <section data-menu-card="arrival" style={cardStyle} onClick={() => playNoor()}>
+                <h3 style={titleStyle}>🕓Arrival🕗</h3>
+                <p style={textStyle}>Doors are open exactly at 16:00, no sooner or later. Miss it and you will be late. Ring a short pulse once, dramatic entrance expected.</p>
             </section>
-            <section data-menu-card="dress" style={cardStyle}>
-                <h3 style={titleStyle}>Dress Code</h3>
-                <p style={textStyle}>Stylish, Formal, The best you have. If it sparkles, even better.</p>
-            </section>
-            <section data-menu-card="plan" style={cardStyle}>
-                <h3 style={titleStyle}>Evening Plan</h3>
+            <div onClick={() => {
+                setParticleSpawn(true)
+                playWow()
+                }}>
+                <section data-menu-card="dress" style={cardStyle}>
+                    <h3 style={titleStyle}>👗Dress Code👔</h3>
+                    <p style={textStyle}>Stylish, Formal, The best you have. If it sparkles, even better.</p>
+                    
+                </section>
+            </div>
+            
+            <section data-menu-card="plan" style={cardStyle} onClick={() => playWide()}>
+                <h3 style={titleStyle}>🌃 Evening Plan 🌆</h3>
                 <p style={textStyle}>Games, food, drinks, music and time to just chill together. </p>
-                <p style={textStyle}>Questions, allergies or special needs? Tell me any time.</p>
+                <p style={textStyle}>Questions, allergies or special needs? Tell me about it.</p>
             </section>
-            <section data-menu-card="status" style={cardStyle}>
-                <h3 style={titleStyle}>Cancellation Check</h3>
-                <p style={textStyle}>Event status: absolutely happening.</p>
-                <p style={textStyle}>Backup plan status: snacks and more snacks.</p>
+            <section data-menu-card="status" style={cardStyle} onClick={() => playPhone()}>
+                <h3 style={titleStyle}>💧Cancellation Check🌊</h3>
+                <p style={textStyle}>Event status: absolutely totally without a doubt happening.</p>
+                <p style={textStyle}>Backup plan status: PANIC.</p>
             </section>
         </div>
+        <Sparkles spawnParticles={particleSpawn} particleTime={500} particleCount={40} onSpawnParticles={() => {setParticleSpawn(false)}}></Sparkles>
+        
     </div>
     )
 }

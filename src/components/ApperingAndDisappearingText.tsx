@@ -21,13 +21,13 @@ const AppearingAndDisappearingText: React.FC<incomingParams> = ({givenText = "",
         // Property keyframes
         scale: [
             { from: 0, to: 1, ease: 'out(1.6)', duration: 1200, delay: 400  },
-            { to: 1, ease: 'out(1.6)', duration: 800, delay: 100 * chars.length  },
-            { to: 0, ease: 'out(1.6)', duration: 800, delay: 1000 }
+            { to: 1, ease: 'out(1.6)', duration: 800, delay: 60 * chars.length  },
+            { to: 0, ease: 'out(1.6)', duration: 800, delay: 700 + 50 * chars.length }
         ],
         opacity: [
             { from: 0, to: 1, ease: 'inOutCirc', duration: 1600 },
-            { to: 0.95, ease: 'outBounce', duration: 800, delay: 100 * chars.length },
-            { to: 0.0, ease: 'outBounce', duration: 800, delay: 1000 },
+            { to: 0.95, ease: 'outBounce', duration: 800, delay: 60 * chars.length },
+            { to: 0.0, ease: 'outBounce', duration: 800, delay: 800 },
         ],
         // Property specific parameters
         rotate: {

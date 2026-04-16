@@ -3,9 +3,10 @@ import {animate, createScope, splitText, stagger, type Scope} from 'animejs'
 
 interface incomingParams{
     givenText: string
+    below?: boolean
 }
 
-const AppearingText: React.FC<incomingParams> = ({givenText = ""}) => {
+const AppearingText: React.FC<incomingParams> = ({givenText = "", below = false}) => {
     
     const AnimRefPoint = useRef<HTMLDivElement>(null);
     const scope = useRef<Scope>(null);
@@ -19,7 +20,7 @@ const AppearingText: React.FC<incomingParams> = ({givenText = ""}) => {
         animate(chars, {
         // Property keyframes
         y: [
-            { to: '-2.75rem', ease: 'outExpo', duration: 600 },
+            { to: below ? '2.75rem':'-2.75rem', ease: 'outExpo', duration: 600 },
             { to: 0, ease: 'outBounce', duration: 800, delay: 100 }
         ],
         opacity: [
