@@ -12,7 +12,9 @@ interface incomingParams{
 
 const StartText: React.FC<incomingParams> = ({completed = () => {}}) => {
     const [state, setState] = useState(0)
-    const [play, data] = useSound('./BloodWater.mp3')
+    const [play, data] = useSound('./BloodWater.mp3', {
+        onended: () => {play()}
+    })
     const doesPlay = useRef<boolean>(false)
 
     useEffect(() => {
