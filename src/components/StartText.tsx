@@ -13,7 +13,7 @@ interface incomingParams{
 const StartText: React.FC<incomingParams> = ({completed = () => {}}) => {
     const [state, setState] = useState(0)
     const [play, data] = useSound('./BloodWater.mp3', {
-        onended: () => {play()}
+        onend: () => {doesPlay.current = false}
     })
     const doesPlay = useRef<boolean>(false)
 
@@ -40,6 +40,7 @@ const StartText: React.FC<incomingParams> = ({completed = () => {}}) => {
     <div style={{ position: 'relative', minHeight: '50vh' }} onClick={() =>  {if(!doesPlay.current) {
         doesPlay.current = true
         play()
+
         }}}>
         {startTexts.map((text: string, index: number) => (
         <div key={index} style={{position: 'absolute', inset: 0, top: "40%"}}>
