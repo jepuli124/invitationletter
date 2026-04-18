@@ -2,6 +2,7 @@ import { animate, createScope, stagger, type Scope } from 'animejs';
 import React, { useEffect, useRef, useState } from 'react'
 import Sparkles from './Sparkles';
 import useSound from 'use-sound';
+import FadeInWrapper from './FadeInWrapper';
 
 interface incomingParams{}
 
@@ -109,6 +110,9 @@ const MainMenu: React.FC<incomingParams> = () => {
         }}>
             Party Intelligence Hub
         </h2>
+        <FadeInWrapper delay={60*1000*2} duration={60*1000}>
+            <p style={{}}>"Say: This site will hold secters that might help you during the evening."</p>
+        </FadeInWrapper>
         <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, minmax(220px, 1fr))',
@@ -118,6 +122,9 @@ const MainMenu: React.FC<incomingParams> = () => {
             <section data-menu-card="arrival" style={cardStyle} onClick={() => playNoor()}>
                 <h3 style={titleStyle}>🕓Arrival🕗</h3>
                 <p style={textStyle}>Doors are open exactly at 16:00, no sooner or later. Miss it and you will be late. Ring a short pulse once, dramatic entrance expected.</p>
+                <FadeInWrapper delay={60*1000*2} duration={60*1000}>
+                    <p style={{fontFamily: 'knive'}}>Say: Elegant evening when you arrive, and you will be rewarded</p>
+                </FadeInWrapper>
             </section>
             <div onClick={() => {
                 setParticleSpawn(true)
@@ -126,7 +133,9 @@ const MainMenu: React.FC<incomingParams> = () => {
                 <section data-menu-card="dress" style={cardStyle}>
                     <h3 style={titleStyle}>👗Dress Code👔</h3>
                     <p style={textStyle}>Stylish, Formal, The best you have. If it sparkles, even better.</p>
-                    
+                    <FadeInWrapper delay={60*1000*3} duration={60*1000}>
+                        <p style={{fontFamily: 'knive'}}>Best dressed will be rewarded</p>
+                    </FadeInWrapper>
                 </section>
             </div>
             
@@ -134,11 +143,17 @@ const MainMenu: React.FC<incomingParams> = () => {
                 <h3 style={titleStyle}>🌃 Evening Plan 🌆</h3>
                 <p style={textStyle}>Games, food, drinks, music and time to just chill together. </p>
                 <p style={textStyle}>Questions, allergies or special needs? Tell me about it.</p>
+                <FadeInWrapper delay={60*1000*3.5} duration={60*1000}>
+                    <p style={{fontFamily: 'knive'}}>It's goblin time</p>
+                </FadeInWrapper>
             </section>
             <section data-menu-card="status" style={cardStyle} onClick={() => playPhone()}>
                 <h3 style={titleStyle}>💧Cancellation Check🌊</h3>
                 <p style={textStyle}>Event status: absolutely totally without a doubt happening.</p>
-                <p style={textStyle}>Backup plan status: PANIC.</p>
+                <p style={textStyle}>Backup plan status: PANIC (in Maija style).</p>
+                <FadeInWrapper delay={60*1000*4} duration={60*1000}>
+                    <p style={{fontFamily: 'knive'}}>You may use water to extinguish the fire</p>
+                </FadeInWrapper>
             </section>
         </div>
         <Sparkles spawnParticles={particleSpawn} particleTime={500} particleCount={40} onSpawnParticles={() => {setParticleSpawn(false)}}></Sparkles>

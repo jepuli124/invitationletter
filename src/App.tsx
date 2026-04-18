@@ -83,6 +83,8 @@ function App() {
         <h2><AppearingAndDisappearingText givenText='You went even deeper...'></AppearingAndDisappearingText></h2>
         <h3><AppearingText givenText='Here is something you will likely appreciate:' below={true}></AppearingText></h3>
         <br />
+        <h3><AppearingText givenText='Say these words to the goblin one: Your secrets are not made in vain' below={true}></AppearingText></h3>
+        <br />
         <br />
         <FadeInWrapper duration={30*1000}>
           <h3 style={{color: "#f70f0f"}}><AppearingText givenText='...dloob eb lliw erehT' below={true}></AppearingText></h3>
