@@ -196,7 +196,7 @@ function App() {
 
       <section id="spacer">
         <FadeInWrapper>
-          <p >"You seems that you have spend here {timedText()} seconds"</p>
+          <p >"You seems that you have spent here {timedText()} seconds"</p>
         </FadeInWrapper>
 
         {
