@@ -150,7 +150,7 @@ const MainMenu: React.FC<incomingParams> = () => {
             <section data-menu-card="status" style={cardStyle} onClick={() => playPhone()}>
                 <h3 style={titleStyle}>💧Cancellation Check🌊</h3>
                 <p style={textStyle}>Event status: absolutely totally without a doubt happening.</p>
-                <p style={textStyle}>Backup plan status: PANIC (in Maija style).</p>
+                <p style={textStyle}>Backup plan status: PANIC (in Maija style) In my ass.</p>
                 <FadeInWrapper delay={60*1000*4} duration={60*1000}>
                     <p style={{fontFamily: 'knive'}}>You may use water to extinguish the fire</p>
                 </FadeInWrapper>
