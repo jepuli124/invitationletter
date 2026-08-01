@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
+import './Font.css'
 import AppearingText from './components/AppearingText'
 import MainMenu from './components/MainMenu'
 import StartText from './components/StartText'
@@ -79,7 +80,7 @@ function App() {
       two != 2 ?
 
       <>
-      <section id='center'>
+      <section id='center' style={{fontFamily: 'grabstein'}}>
         <h2><AppearingAndDisappearingText givenText='You went even deeper...'></AppearingAndDisappearingText></h2>
         <h3><AppearingText givenText='Here is something you will likely appreciate:' below={true}></AppearingText></h3>
         <br />
@@ -109,7 +110,7 @@ function App() {
       :
 
       passwordIsValid ? 
-      <section id='center'>
+      <section id='center' style={{fontFamily: 'grabstein'}}>
         <h2><DancingText givenText='Too bad...'></DancingText></h2>
         <h2>It's just another code</h2>
         <input type="time" name="" id="" onChange={checkTime}/>
@@ -125,7 +126,7 @@ function App() {
     
       <>
     
-      <section>
+      <section style={{fontFamily: 'grabstein'}}>
         {
         
 
@@ -133,7 +134,7 @@ function App() {
         ?
         
         <>
-        <h3><AppearingText givenText='You have arrived'></AppearingText></h3>
+        <h3><AppearingText givenText='The event has passed'></AppearingText></h3>
         
         </>
         :
@@ -142,7 +143,7 @@ function App() {
         <h3><DancingText givenText="🎄 starts in: 🕒 "></DancingText></h3>
         <h2>{countdownText()}</h2>
         <h2><AppearingText givenText='19.4.2026 16:00'></AppearingText></h2>
-        <h2 ><AppearingText givenText='Please inform me about your participation before 24h starting' below={true}></AppearingText></h2>
+        <h2 ><AppearingText givenText='We unfortunately inform you that you missed this event' below={true}></AppearingText></h2>
         </>
         :
         <></>
@@ -153,15 +154,15 @@ function App() {
       </div> */}
       </section>
 
-      <section id="center" style={{}}>
-      <div style={{position: 'relative', display: 'inline-block', width: "100%"}}>
+      <section id="center" style={{fontFamily: 'grabstein'}}>
+      <div style={{position: 'relative', display: 'inline-block', width: "100%", fontFamily: 'grabstein'}}>
           {/* <img src={} style={{display: 'block'}}></img> */}
         {
           state == 0 ?
           <>
           <FadeInWrapper duration={2000}>
             <button style={cardStyle} onClick={() => setState(1)}>
-              <h2>Please enter...</h2>
+              <h2 style={{fontFamily: 'grabstein'}}>Please enter...</h2>
             </button>
           </FadeInWrapper>
           
@@ -194,7 +195,7 @@ function App() {
       </section>
 
 
-      <section id="spacer">
+      <section id="spacer" style={{fontFamily: 'grabstein'}}>
         <FadeInWrapper>
           <p >"You seems that you have spent here {timedText()} seconds"</p>
         </FadeInWrapper>

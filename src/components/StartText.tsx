@@ -37,7 +37,7 @@ const StartText: React.FC<incomingParams> = ({completed = () => {}}) => {
     }
 
     return (
-    <div style={{ position: 'relative', minHeight: '50vh' }} onClick={() =>  {if(!doesPlay.current) {
+    <div style={{ position: 'relative', minHeight: '50vh', fontFamily: 'grabstein' }} onClick={() =>  {if(!doesPlay.current) {
         doesPlay.current = true
         play()
 
@@ -54,7 +54,7 @@ const StartText: React.FC<incomingParams> = ({completed = () => {}}) => {
         :
 
         <> 
-        <h1><AppearingAndDisappearingText givenText={text} done={done}></AppearingAndDisappearingText></h1> 
+        <h1 style={{fontFamily: 'grabstein'}}><AppearingAndDisappearingText givenText={text} done={done}></AppearingAndDisappearingText></h1> 
         </>
 
         :<></>}
