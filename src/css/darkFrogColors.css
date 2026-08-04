@@ -1,0 +1,29 @@
+@property --RebeccaPurple {
+    syntax: '<color>';
+    initial-value: #6A3190;
+    inherits: false;
+}
+
+@property --DarkAmethyst {
+    syntax: '<color>';
+    initial-value: #440A5F;
+    inherits: false;
+}
+
+@property --IndigoVelvet {
+    syntax: '<color>';
+    initial-value: #402785;
+    inherits: false;
+}
+
+@property --Aquamarine {
+    syntax: '<color>';
+    initial-value: #85FFC7;
+    inherits: false;
+}
+
+@property --PineBlue {
+    syntax: '<color>';
+    initial-value: #297373;
+    inherits: false;
+}

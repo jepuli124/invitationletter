@@ -1,8 +1,8 @@
 import { animate, createScope, stagger, type Scope } from 'animejs';
 import React, { useEffect, useRef, useState } from 'react'
-import Sparkles from './Sparkles';
+import Sparkles from '../Sparkles';
 import useSound from 'use-sound';
-import FadeInWrapper from './FadeInWrapper';
+import FadeInWrapper from '../FadeInWrapper';
 
 interface incomingParams{}
 
@@ -144,7 +144,7 @@ const MainMenu: React.FC<incomingParams> = () => {
                 <p style={textStyle}>Games, food, drinks, music and time to just chill together. </p>
                 <p style={textStyle}>Questions, allergies or special needs? Tell me about it.</p>
                 <FadeInWrapper delay={60*1000*3.5} duration={60*1000}>
-                    <p style={{fontFamily: 'knive'}}>It's goblin time</p>
+                    <p style={{fontFamily: 'knive'}}>It's goblin time, saying "thank you" is appriciated</p>
                 </FadeInWrapper>
             </section>
             <section data-menu-card="status" style={cardStyle} onClick={() => playPhone()}>

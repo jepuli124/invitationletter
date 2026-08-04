@@ -1,0 +1,33 @@
+/*https://www.color-hex.com/color-palette/1082548*/
+
+
+@property --DuskBrown {
+    syntax: '<color>';
+    initial-value: #8d3634;
+    inherits: false;
+}
+
+@property --DarkVine {
+    syntax: '<color>';
+    initial-value: #5d0732;
+    inherits: false;
+}
+
+
+@property --CloseOnyx {
+    syntax: '<color>';
+    initial-value: #14001a;
+    inherits: false;
+}
+
+@property --IndigoLike {
+    syntax: '<color>';
+    initial-value: #3e1779;
+    inherits: false;
+}
+
+@property --DeepBlue {
+    syntax: '<color>';
+    initial-value: #413b91;
+    inherits: false;
+}

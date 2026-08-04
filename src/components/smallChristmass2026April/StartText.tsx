@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { startTexts } from '../assets/StartTextConst'
-import AppearingAndDisappearingText from './ApperingAndDisappearingText'
-import ChangingLetters from './ChangingLetters'
-import FadeInWrapper from './FadeInWrapper'
+import { startTexts } from '../../assets/StartTextConst'
+import AppearingAndDisappearingText from '../ApperingAndDisappearingText'
+import ChangingLetters from '../ChangingLetters'
+import FadeInWrapper from '../FadeInWrapper'
 import useSound from 'use-sound'
 
 interface incomingParams{
@@ -43,7 +43,7 @@ const StartText: React.FC<incomingParams> = ({completed = () => {}}) => {
 
         }}}>
         {startTexts.map((text: string, index: number) => (
-        <div key={index} style={{position: 'absolute', inset: 0, top: "40%"}}>
+        <div key={index} style={{marginTop: "10%"}}>
         {state == index ? 
 
         text == 'RNG' ? 
@@ -61,7 +61,7 @@ const StartText: React.FC<incomingParams> = ({completed = () => {}}) => {
         </div>
         
       ))}
-    <div style={{position: 'absolute', inset: 0, top: "100%"}}>
+    <div style={{marginTop: "15%"}}>
         <FadeInWrapper duration={2*60*1000} delay={4000}>
             <button style={cardStyle}  onClick={() => {
                 localStorage.setItem("seenIntro", "true")
