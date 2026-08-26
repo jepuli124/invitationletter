@@ -1,0 +1,93 @@
+@property --main1 {
+    syntax: "<color>";
+    initial-value: #4B0090;
+    inherits: false;
+}
+
+@property --main1dark {
+    syntax: "<color>";
+    initial-value: #2f0853;
+    inherits: false;
+}
+
+
+@property --main1darker {
+    syntax: "<color>";
+    initial-value: #21033d;
+    inherits: false;
+}
+
+
+@property --main1light {
+    syntax: "<color>";
+    initial-value: #581d8f;
+    inherits: false;
+}
+
+
+@property --main1lighter {
+    syntax: "<color>";
+    initial-value: #4B0090;
+    inherits: false;
+}
+
+
+@property --main2 {
+    syntax: "<color>";
+    initial-value: #29138d;
+    inherits: false;
+}
+
+@property --main2dark {
+    syntax: "<color>";
+    initial-value: #1a0869;
+    inherits: false;
+}
+
+@property --main2darker {
+    syntax: "<color>";
+    initial-value: #0e0149;
+    inherits: false;
+}
+
+@property --main2light {
+    syntax: "<color>";
+    initial-value: #3820a3;
+    inherits: false;
+}
+
+@property --main2lighter {
+    syntax: "<color>";
+    initial-value: #422aad;
+    inherits: false;
+}
+
+@property --main3 {
+    syntax: "<color>";
+    initial-value: #781b88;
+    inherits: false;
+}
+
+@property --main3dark {
+    syntax: "<color>";
+    initial-value: #36033f;
+    inherits: false;
+}
+
+@property --main3darker {
+    syntax: "<color>";
+    initial-value: #200125;
+    inherits: false;
+}
+
+@property --main3light {
+    syntax: "<color>";
+    initial-value: #ac39c0;
+    inherits: false;
+}
+
+@property --main3lighter {
+    syntax: "<color>";
+    initial-value: #781b88;
+    inherits: false;
+}

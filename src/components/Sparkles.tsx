@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Sparkle from './Sparkle'
 import useMousePosition from '../misc/MousePosition'
 
@@ -23,21 +23,21 @@ const Sparkles: React.FC<incomingParams> = ({spawnParticles = false, onSpawnPart
     
     const [pos, setPos] = useState({ x: 0, y: 0 });
 
-    const handleMove = () => {
+    const handleMove = useCallback(() => {
       setPos({
         x: currentMouseLoc.current.x - relativeLocation.current.x,
         y: currentMouseLoc.current.y - relativeLocation.current.y,
       });
-    };
+    }, [setPos])
 
-    const callSparkles = () => {
+    const callSparkles = useCallback(() => {
       onSpawnParticles()
       handleMove()
       for (let index = 0; index < particleCount; index++) {
         particleList.current.push(particleTime)
       }
 
-    }
+    }, [onSpawnParticles, handleMove, particleCount, particleTime])
 
     useEffect(() => {
       if(spawnParticles){
@@ -70,3 +70,7 @@ const Sparkles: React.FC<incomingParams> = ({spawnParticles = false, onSpawnPart
 }
 
 export default Sparkles
+
+// how to use
+// const [particleSpawn, setParticleSpawn] = useState<boolean>(false)
+// <Sparkles spawnParticles={particleSpawn} particleTime={500} particleCount={40} onSpawnParticles={() => {setParticleSpawn(false)}}></Sparkles>

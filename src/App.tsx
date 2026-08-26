@@ -4,8 +4,10 @@ import './App.css'
 import './Font.css'
 import './css/button.css'
 import './css/inputfield.css'
+import './css/card.css'
+import './css/darkNight.css'
 import Archive from './components/Archive'
-import CurrentEvent from './components/CurrentEvent'
+import Wrapper29082026 from './components/29082026AlluBdayAndSmallChristmass/Wrapper29082026'
 
 
 function App() {
@@ -14,12 +16,10 @@ function App() {
 
   return (
     <>
-
-      <section>
-        <CurrentEvent />
-      </section>
+      <Wrapper29082026 />
+      
     
-      <section>
+      <section style={{marginTop: "15vh", padding: "5vh"}}>
         <button onClick={() => setShowArchive(old => !old)}>Show/Hide Archive</button>
         {showArchive? <Archive /> : <></>}
       </section>

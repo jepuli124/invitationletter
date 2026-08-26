@@ -1,5 +1,5 @@
 import { animate, createScope, type Scope } from 'animejs';
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 
 interface incomingParams{
     lifetime?: number,
@@ -8,14 +8,7 @@ interface incomingParams{
     colors: string[]
     location?: {x: number, y: number}
 }
-
-const Sparkle: React.FC<incomingParams> = ({lifetime = 1000, size = 1, done = () => {}, colors = [], location = {x: 0, y: 0}}) => {
-    const AnimRefPoint = useRef<HTMLDivElement>(null);
-    const scope = useRef<Scope>(null);
-    const defaultSize = useRef<number>((Math.random()+0.5)*size);
-    const vw = window.innerWidth;
-
-    function generateRandomHexColor() {
+function generateRandomHexColor() {
         const hexChars = "0123456789ABCDEF";
         let hexColor = "#";
         for (let i = 0; i < 6; i++) {
@@ -24,13 +17,21 @@ const Sparkle: React.FC<incomingParams> = ({lifetime = 1000, size = 1, done = ()
 
         return hexColor;
         }
+        
+const Sparkle: React.FC<incomingParams> = ({lifetime = 1000, size = 1, done = () => {}, colors = [], location = {x: 0, y: 0}}) => {
+    const AnimRefPoint = useRef<HTMLDivElement>(null);
+    const scope = useRef<Scope>(null);
+    const defaultSize = useRef<number>((Math.random()+0.5)*size);
+    const vw = window.innerWidth;
 
-    const randomColor = () => {
+    
+
+    const randomColor = useCallback(() => {
         if(colors.length != 0){
             return colors[Math.floor(Math.random()*colors.length)]
         }
         return generateRandomHexColor()
-    }
+    }, [colors])
 
     const color = useRef<string>(randomColor())
     
@@ -63,7 +64,7 @@ const Sparkle: React.FC<incomingParams> = ({lifetime = 1000, size = 1, done = ()
         className='sparkle'
         style={{
             opacity: 0,
-            position: 'absolute',
+            position: 'fixed',
         }}
         >
         <svg width={defaultSize.current + "vw"} height={defaultSize.current + "vw"} viewBox="0 0 100 100">
